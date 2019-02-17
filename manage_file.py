@@ -29,6 +29,22 @@ def upload_image():
     
     return jsonify(res)
 
+@app.route("/upload_image_from_shopping_1", methods=['POST'])
+def upload_image_from_shopping_1():
+    files = request.files
+    image_path = "./static/data/shopping/product"
+    try:
+        os.makedirs(image_path)
+    except OSError:
+        pass
+    
+    for file_name in files:
+        files[file_name].save(image_path + "/" + file_name + ".jpg")
+    
+    res = {'link': 'http://' + public_ip + ':5005/static/data/images/' + file_name}
+    
+    return jsonify(res)
+
 @app.route("/")
 def index():
     return render_template("index.html")
