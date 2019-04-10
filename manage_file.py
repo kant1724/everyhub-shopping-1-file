@@ -25,7 +25,7 @@ def upload_image():
     for file_name in files:
         files[file_name].save(image_path + "/" + image_name)
     
-    res = {'link': 'http://' + public_ip + ':5005/static/data/images/' + image_name}
+    res = {'link': 'http://' + public_ip + ':5006/static/data/images/' + image_name}
     
     return jsonify(res)
 
@@ -41,7 +41,7 @@ def upload_image_from_shopping_1():
     for file_name in files:
         files[file_name].save(image_path + "/" + file_name + ".jpg")
     
-    res = {'link': 'http://' + public_ip + ':5005/static/data/images/' + file_name}
+    res = {'link': 'http://' + public_ip + ':5006/static/data/images/' + file_name}
     
     return jsonify(res)
 
